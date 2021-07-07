@@ -1,0 +1,20 @@
+This is an arbitrary precision library extracted from GNU bc-1.07,
+available at http://www.gnu.org/software/bc/ .
+
+This code is subject to GNU GPL. See COPYING.
+
+The file number.c has been changed slightly to fix a memory leak.
+My config.h disables code unnecessary for my needs.
+Here are the differences:
+
+% diff bc-1.07.1/lib/number.c ./number.c 
+45a46
+> #ifndef REMOVE_THIS_FOR_ME
+52a54
+> #endif
+1192a1195
+>   bc_free_num (&parity);
+1371a1375
+> #ifndef REMOVE_THIS_FOR_ME
+1527a1532
+> #endif

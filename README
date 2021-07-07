@@ -1,0 +1,32 @@
+This is an arbitrary precision library for Lua. It is based on the
+number.c library written by Philip A. Nelson for GNU bc:
+	http://www.gnu.org/software/bc/
+
+To build the library and run a simple test, just do make.
+If Lua is not installed in /usr/local, tell make:
+	make LUA_TOPDIR=/var/tmp/lhf/lua-5.3.5/install
+
+To install the library where Lua can find it, use a variant of these:
+	make install
+	sudo make install
+	sudo make install LIBDIR=/usr/local/lib/lua/5.3
+
+For detailed installation instructions, see
+	http://www.tecgraf.puc-rio.br/~lhf/ftp/lua/install.html
+
+The library is simple and intuitive; see the summary below.
+Read test.lua to see the library in action.
+
+This code is hereby placed in the public domain and also under the MIT license.
+The bc code in src/ has its own license. See src/COPYING.
+
+Please send comments, suggestions, and bug reports to lhf@tecgraf.puc-rio.br .
+
+bc library:
+__add(x,y)	__pow(x,y)	digits([n])	new(x)		tostring(x)
+__div(x,y)	__sub(x,y)	div(x,y)	pow(x,y)	trunc(x,[n])
+__eq(x,y)	__tostring(x)	isneg(x)	powmod(x,y,m)	version
+__le(x,y)	__unm(x)	iszero(x)	quotrem(x,y)
+__lt(x,y)	abs(x)		mod(x,y)	sqrt(x)
+__mod(x,y)	add(x,y)	mul(x,y)	sub(x,y)
+__mul(x,y)	compare(x,y)	neg(x)		tonumber(x)
