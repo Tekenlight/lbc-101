@@ -917,7 +917,13 @@ bc_divide (bc_num n1, bc_num n2, bc_num *quot,  int scale)
   unsigned int  norm;
 
   /* Test for divide by zero. */
-  if (bc_is_zero (n2)) return -1;
+  if (bc_is_zero (n2)) {
+	  if (!bc_is_zero (n1))
+		  return -1;
+	  else
+		  return -2;
+  }
+ 
 
   /* Test for divide by 1.  If it is we must truncate. */
   if (n2->n_scale == 0)
