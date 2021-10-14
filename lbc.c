@@ -185,7 +185,9 @@ static int Pdo1(lua_State *L, void (*f)(bc_num a, bc_num b, bc_num *c, int n))
  bc_num a=Pget(L,1);
  bc_num b=Pget(L,2);
  bc_num c=NULL;
- f(a,b,&c,digits);
+ //f(a,b,&c,digits);
+ //f(a,b,&c,a->n_scale); /** The output will be minimum scale **/
+ f(a,b,&c,0); /** The output will be minimum scale of a or b **/
  Pnew(L,c);
  return 1;
 }
