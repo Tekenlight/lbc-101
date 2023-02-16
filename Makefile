@@ -1,6 +1,9 @@
 # Makefile for Lua library
+#
 
-LUA_TOPDIR= $(PREFIX)/usr/local
+LUA_TOPDIR_1=$(shell if [ "$(TOPDIR)" == "" ]; then echo "/usr/local"; else echo "/usr"; fi ;)
+
+LUA_TOPDIR= $(PREFIX)$(LUA_TOPDIR_1)
 LUA_INCDIR= $(LUA_TOPDIR)/include
 LUA_BINDIR= $(LUA_TOPDIR)/bin
     LIBDIR= $(LUA_TOPDIR)/lib/lua/5.3
@@ -8,7 +11,7 @@ LUA_BINDIR= $(LUA_TOPDIR)/bin
 
 CC= gcc -std=c99
 CFLAGS= -Wall -Wextra -Wfatal-errors -O2
-MYCFLAGS= $(CFLAGS) -I$(LUA_INCDIR) -Isrc
+MYCFLAGS= $(CFLAGS) -I$(LUA_INCDIR) -I$(LUA_INCDIR)/lua5.3 -Isrc
 
 MYNAME= bc
 MYLIBS= src/number.o
