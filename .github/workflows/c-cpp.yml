@@ -18,7 +18,8 @@ jobs:
         repository: Tekenlight/lua
         path: libev
     - name: Build customized lua
-      run:
+      run: |
+        cd lua
         make linux
     - uses: actions/checkout@v3
     - name: make
