@@ -12,11 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install CUSTOMIZED lua
+      uses : actions/checkout@v3
+      with :
+        repository: Tekenlight/lua
+        path: libev
+    - name: Build customized lua
+      run:
+        make linux
     - uses: actions/checkout@v3
-    - name: install lua
-      run: |
-        sudo apt-get install -y liblua5.3-dev
-        sudo apt-get install lua5.3
     - name: make
       run: make
     - name: make test
