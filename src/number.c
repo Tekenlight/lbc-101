@@ -64,16 +64,19 @@ free_global_allocs()
 	if (_zero_) {
 		free(_zero_->n_ptr);
 		free(_zero_);
+		_zero_ = NULL;
 	}
 
 	if (_one_) {
 		free(_one_->n_ptr);
 		free(_one_);
+		_one_ = NULL;
 	}
 
 	if (_two_) {
 		free(_two_->n_ptr);
 		free(_two_);
+		_two_ = NULL;
 	}
 
 	return;
