@@ -1,0 +1,24 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install liblua5.3-dev
+      run: |
+        sudo apt-get install -y libreadline-dev  liblua5.3-dev lua5.3
+        #sudo ln -s /usr/bin/lua5.3 /usr/bin/lua
+    - uses: actions/checkout@v3
+    - name: make
+      run: TOPDIR="usr" make
+    - name: make test
+      run: make test
+   

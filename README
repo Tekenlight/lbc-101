@@ -1,3 +1,8 @@
+This library is copied from https://web.tecgraf.puc-rio.br/~lhf/ftp/lua/ar/lbc-101.tar.gz
+
+The original text of README in the source is as below.
+
+
 This is an arbitrary precision library for Lua. It is based on the
 number.c library written by Philip A. Nelson for GNU bc:
 	http://www.gnu.org/software/bc/
