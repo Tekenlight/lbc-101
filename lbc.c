@@ -287,6 +287,12 @@ static int Lgc(lua_State *L)
  return 0;
 }
 
+static int Lcleanup(lua_State *L)
+{
+	free_global_allocs();
+	return 0;
+}
+
 static const luaL_Reg R[] =
 {
 	{ "__add",	Ladd	},		/** __add(x,y) */
@@ -301,6 +307,7 @@ static const luaL_Reg R[] =
 	{ "__sub",	Lsub	},		/** __sub(x,y) */
 	{ "__tostring",	Ltostring},		/** __tostring(x) */
 	{ "__unm",	Lneg	},		/** __unm(x) */
+	{ "cleanup", Lcleanup},
 	{ "abs",	Labs	},
 	{ "add",	Ladd	},
 	{ "compare",	Lcompare},

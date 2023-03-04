@@ -89,6 +89,8 @@ extern bc_num _two_;
 
 /* Function Prototypes */
 
+void free_global_allocs (void);
+
 void bc_init_numbers (void);
 
 bc_num bc_new_num (int length, int scale);

@@ -58,6 +58,27 @@ bc_num _zero_;
 bc_num _one_;
 bc_num _two_;
 
+void
+free_global_allocs()
+{
+	if (_zero_) {
+		free(_zero_->n_ptr);
+		free(_zero_);
+	}
+
+	if (_one_) {
+		free(_one_->n_ptr);
+		free(_one_);
+	}
+
+	if (_two_) {
+		free(_two_->n_ptr);
+		free(_two_);
+	}
+
+	return;
+}
+
 static bc_num _bc_Free_list = NULL;
 
 /* new_num allocates a number and sets fields to known values. */
