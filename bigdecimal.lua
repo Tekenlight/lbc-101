@@ -1,7 +1,10 @@
 local bc = require("bc");
 
 local function gc()
-	bc.cleanup();
+	--print(debug.getinfo(1).source, debug.getinfo(1).currentline);
+	--print("Will do nothing for now");
+	--bc.cleanup();
+	--print(debug.getinfo(1).source, debug.getinfo(1).currentline);
 end
 
 local bc_meta = {
@@ -9,7 +12,7 @@ local bc_meta = {
 }
 
 _G.bigdecimal_init = {};
-debug.setmetatable(_G.bigdecimal_init, bc_meta);
+--debug.setmetatable(_G.bigdecimal_init, bc_meta);
 bc.digits(64);
 
 return bc;

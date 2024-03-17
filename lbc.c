@@ -289,7 +289,7 @@ static int Lgc(lua_State *L)
 
 static int Lcleanup(lua_State *L)
 {
-	free_global_allocs();
+	//free_global_allocs();
 	return 0;
 }
 

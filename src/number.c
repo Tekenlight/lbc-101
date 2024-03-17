@@ -54,9 +54,9 @@ void out_of_memory (void);
 #endif
 
 /* Storage used for special numbers. */
-bc_num _zero_;
-bc_num _one_;
-bc_num _two_;
+bc_num _zero_ = NULL;
+bc_num _one_ = NULL;
+bc_num _two_ = NULL;
 
 void
 free_global_allocs()
@@ -132,11 +132,15 @@ bc_free_num (bc_num *num)
 void
 bc_init_numbers (void)
 {
-  _zero_ = bc_new_num (1,0);
-  _one_  = bc_new_num (1,0);
-  _one_->n_value[0] = 1;
-  _two_  = bc_new_num (1,0);
-  _two_->n_value[0] = 2;
+  if (!_zero_) _zero_ = bc_new_num (1,0);
+  if (!_one_)  {
+	  _one_  = bc_new_num (1,0);
+	  _one_->n_value[0] = 1;
+  }
+  if(!_two_) {
+	  _two_  = bc_new_num (1,0);
+	  _two_->n_value[0] = 2;
+  }
 }
 
 
